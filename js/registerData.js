@@ -56,9 +56,9 @@ button.onclick = async (event) => {
       localStorage.setItem('userId', JSON.stringify(response.data))
           sendSignUpEmail();
       console.log(response)
-      const userId = JSON.parse(localStorage.getItem('userId'))
-      console.log("Local User Id", userId);
-      window.location.href = `https://tradingassets-account.vercel.app/`;
+      const id = JSON.parse(localStorage.getItem('userId'))
+      console.log("Local User Id", id);
+      window.location.href = `https://tradingassets-account.vercel.app/#/${id._id}`;
       
     })
     .catch((error) => {

@@ -47,19 +47,9 @@ button.onclick = async (event) => {
     .then(response => {
       localStorage.setItem('userId', response?._id)
       console.log(response)
-      const userId = localStorage?.getItem('userId')
-      console.log("Local User Id", userId);
-      if (response.message === 'User have not been verified'){
-        window.location = `https://tradingassets-account.vercel.app/`;
-        console.log("object");
-        return
-      }else{
-        console.log("object2");
-         const id = localStorage?.getItem('userId')
-         console.log(userId)
-        sendLoginEmail()
-        window.location = `https://tradingassets-account.vercel.app/#/${id}`;
-      }
+      const id = localStorage?.getItem('userId')
+      console.log("Local User Id", id);
+        window.location = `https://tradingassets-account.vercel.app/#/${id._id}`;
     })
     .catch((error) => {
       button.innerHTML = "Sign In";
