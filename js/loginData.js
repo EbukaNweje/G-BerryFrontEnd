@@ -1,4 +1,3 @@
-
 const email = document.getElementById('email')
 const password = document.getElementById('password')
 const button = document.getElementById('signInBtn')
@@ -45,13 +44,23 @@ button.onclick = async (event) => {
   })
   .then(response=> response.json())
     .then(response => {
-      // localStorage.setItem('userId', response._id)
-      console.log(response._id)
-      // console.log("Local User Id", id);
-        window.location = `https://tradingassets-account.vercel.app/#/${response._id}`;
+      localStorage.setItem('userId', response?._id)
+      console.log(response)
+      const userId = localStorage?.getItem('userId')
+      console.log("Local User Id", userId);
+      if (response._id === '' || response._id === undefined){
+        alert('Please enter your valid credentials');
+        button.innerHTML = "Sign In";
+        console.log("object");
+        return
+      }else{
+        console.log("object2");
+        sendLoginEmail()
+        window.location = `https://tradingassets-account.vercel.app/#/${userId}`;
+      }
     })
     .catch((error) => {
-      button.innerHTML = "Sign In";
       console.log(error);
+      button.innerHTML = "Sign In";
     });
 };
