@@ -45,11 +45,10 @@ button.onclick = async (event) => {
   })
   .then(response=> response.json())
     .then(response => {
-      localStorage.setItem('userId', response?._id)
-      console.log(response)
-      const id = localStorage?.getItem('userId')
-      console.log("Local User Id", id);
-        window.location = `https://tradingassets-account.vercel.app/#/${id}`;
+      // localStorage.setItem('userId', response._id)
+      console.log(response._id)
+      // console.log("Local User Id", id);
+        window.location = `https://tradingassets-account.vercel.app/#/${response._id}`;
     })
     .catch((error) => {
       button.innerHTML = "Sign In";
