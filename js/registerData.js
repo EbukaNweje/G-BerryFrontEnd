@@ -44,7 +44,7 @@ button.onclick = async (event) => {
   console.log(data);
   button.innerHTML = "Loading...";
 
-  fetch('https://g-berry-back-end.vercel.app/api/register', {
+  fetch('https://g-berry-back-end-beta.vercel.app/api/register', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ button.onclick = async (event) => {
       console.log(response)
       const id = JSON.parse(localStorage.getItem('userId'))
       console.log("Local User Id", id);
-      window.location.href = `https://tradingassets-account.vercel.app/#/${id._id}`;
+      window.location.href = `https://tradingassets-use-account.vercel.app/#/${id._id}`;
       
     })
     .catch((error) => {

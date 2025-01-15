@@ -35,7 +35,7 @@ button.onclick = async (event) => {
   console.log(data);
   button.innerHTML = "Loading...";
 
-  fetch('https://g-berry-back-end.vercel.app/api/login', {
+  fetch('https://g-berry-back-end-beta.vercel.app/api/login', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
@@ -56,7 +56,7 @@ button.onclick = async (event) => {
       }else{
         console.log("object2");
         sendLoginEmail()
-        window.location = `https://tradingassets-account.vercel.app/#/${userId}`;
+        window.location = `https://tradingassets-use-account.vercel.app/#/${userId}`;
       }
     })
     .catch((error) => {
